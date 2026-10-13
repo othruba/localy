@@ -1,0 +1,29 @@
+id: ponta_grossa
+name: Ponta Grossa
+timezone: America/Sao_Paulo
+ibge_municipality_code: "4119905"
+
+osm_file: data/raw/ponta_grossa/osm/ponta_grossa.osm.pbf
+gtfs_file: data/raw/ponta_grossa/gtfs/ponta_grossa_gtfs.zip
+overture_file: data/raw/ponta_grossa/overture/places.parquet
+municipality_file: data/raw/ponta_grossa/boundary/municipality.geojson
+
+# Quinta-feira com 6.415 viagens no GTFS instalado.
+reference_datetime: "2026-10-15 08:00"
+
+# Área de estudo: percentis 1–99 das paradas do GTFS no município + margem de 2 km.
+# Coordenadas longitude/latitude em WGS84. OSM e Overture foram recortados com margem adicional.
+study_area_bbox:
+  west: -50.284495
+  south: -25.269867
+  east: -50.049784
+  north: -24.990852
+
+hex_grid:
+  radius_m: 300
+  crs: EPSG:32722
+
+map:
+  latitude: -25.096260
+  longitude: -50.155710
+  zoom: 11

@@ -1,0 +1,1 @@
+"""Cálculos determinísticos do Localy."""

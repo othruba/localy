@@ -1,0 +1,19 @@
+[project]
+name = "localy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "geopandas>=1.2.0",
+    "google-genai>=2.30.1",
+    "pandas>=3.0.6",
+    "pyarrow>=25.0.1",
+    "pydantic>=2.14.1",
+    "pydeck>=0.9.3",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.3",
+    "r5py>=1.1.7",
+    "shapely>=2.2.0",
+    "streamlit>=1.65.0",
+]

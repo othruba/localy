@@ -1,0 +1,50 @@
+# Os valores abaixo são termos da hierarquia de taxonomy no Overture Places.
+# Uma categoria local pode reunir mais de um termo da taxonomia.
+pharmacy:
+  label: Farmácia
+  overture_categories: [pharmacy, drugstore]
+
+hospital:
+  label: Hospital
+  overture_categories: [hospital]
+
+clinic:
+  label: Clínica
+  overture_categories:
+    - primary_care_or_general_clinic
+    - pediatric_clinic
+    - public_health_clinic
+    - behavioral_or_mental_health_clinic
+    - vision_or_eye_care_clinic
+    - dental_clinic
+
+supermarket:
+  label: Supermercado
+  # A taxonomia desta versão usa grocery_store para supermercados e mercados.
+  overture_categories: [grocery_store, superstore]
+
+grocery_store:
+  label: Mercearia
+  # Há sobreposição com supermarket porque Overture agrupa mercados grandes
+  # e pequenos em grocery_store. Mantemos conveniências também neste tipo.
+  overture_categories: [grocery_store, convenience_store, organic_grocery_store]
+
+restaurant:
+  label: Restaurante
+  overture_categories: [restaurant]
+
+cafe:
+  label: Café
+  overture_categories: [cafe]
+
+gym:
+  label: Academia
+  overture_categories: [gym]
+
+park:
+  label: Parque
+  overture_categories: [park]
+
+school:
+  label: Escola
+  overture_categories: [school]

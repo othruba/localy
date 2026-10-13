@@ -1,0 +1,129 @@
+# Destinos cadastrados manualmente. Confira o campus e as coordenadas antes dos pré-cálculos.
+# Substitua null por latitude/longitude em graus decimais. Não deixe destinos incompletos
+# ativos na etapa de preparação dos dados.
+
+# ==============================
+# PONTA GROSSA
+# ==============================
+- id: utfpr_pg
+  city_id: ponta_grossa
+  name: UTFPR
+  type: university
+  latitude: -25.051736853480158
+  longitude: -50.13190279224748
+
+- id: uepg_centro
+  city_id: ponta_grossa
+  name: UEPG - Campus Centro
+  type: university
+  latitude: -25.086474599375357
+  longitude: -50.16108383195116
+  
+- id: uepg_campus
+  city_id: ponta_grossa
+  name: UEPG - Campus Uvaranas
+  type: university
+  latitude: -25.089778404117986
+  longitude: -50.10619867463579
+
+- id: unicesumar_pg
+  city_id: ponta_grossa
+  name: Unicesumar
+  type: university
+  latitude: -25.12978689196774
+  longitude: -50.15139349881725
+
+# ==============================
+# CURITIBA
+# ==============================
+
+# UFPR - Universidade Federal do Paraná
+
+- id: ufpr_centro
+  city_id: curitiba
+  name: UFPR - Prédio Histórico
+  type: university
+  latitude: -25.42910
+  longitude: -49.26765
+
+- id: ufpr_reitoria
+  city_id: curitiba
+  name: UFPR - Reitoria
+  type: university
+  latitude: -25.42689
+  longitude: -49.26187
+
+- id: ufpr_politecnico
+  city_id: curitiba
+  name: UFPR - Centro Politécnico
+  type: university
+  latitude: -25.44630
+  longitude: -49.23321
+
+- id: ufpr_reboucas
+  city_id: curitiba
+  name: UFPR - Campus Rebouças
+  type: university
+  latitude: -25.43736
+  longitude: -49.26414
+
+
+# UTFPR - Universidade Tecnológica Federal do Paraná
+
+- id: utfpr_centro
+  city_id: curitiba
+  name: UTFPR - Sede Centro
+  type: university
+  latitude: -25.439355
+  longitude: -49.268828
+
+
+# PUCPR - Pontifícia Universidade Católica do Paraná
+
+- id: pucpr_curitiba
+  city_id: curitiba
+  name: PUCPR - Campus Curitiba
+  type: university
+  latitude: -25.45271
+  longitude: -49.25083
+
+
+# Universidade Positivo
+
+- id: positivo_ecoville
+  city_id: curitiba
+  name: Universidade Positivo - Ecoville
+  type: university
+  latitude: -25.44630
+  longitude: -49.35975
+
+
+# Universidade Tuiuti do Paraná
+
+- id: tuiuti_barigui
+  city_id: curitiba
+  name: Universidade Tuiuti - Campus Barigui
+  type: university
+  latitude: -25.42460
+  longitude: -49.31912
+
+
+# UniCuritiba
+
+- id: unicuritiba_reboucas
+  city_id: curitiba
+  name: UniCuritiba - Campus Milton Vianna Filho
+  type: university
+  latitude: -25.44973
+  longitude: -49.26559
+
+
+# UFPR - Campus Jardim Botânico
+# Coordenada aproximada de referência dentro do campus.
+
+- id: ufpr_jardim_botanico
+  city_id: curitiba
+  name: UFPR - Campus Jardim Botânico
+  type: university
+  latitude: -25.44800
+  longitude: -49.23837

@@ -1,0 +1,31 @@
+id: curitiba
+name: Curitiba
+timezone: America/Sao_Paulo
+ibge_municipality_code: "4106902"
+
+osm_file: data/raw/curitiba/osm/curitiba.osm.pbf
+gtfs_file: data/raw/curitiba/gtfs/curitiba_gtfs.zip
+overture_file: data/raw/curitiba/overture/places.parquet
+municipality_file: data/raw/curitiba/boundary/municipality.geojson
+
+# Quinta-feira com 33.425 viagens: cenário fixo reutilizado em todos os cálculos.
+# A data fica dentro do calendário do GTFS, independentemente da data atual.
+# Os tempos representam este feed, não horários atuais do transporte.
+reference_datetime: "2026-10-01 08:00"
+
+# Área de estudo: percentis 1–99 das paradas do GTFS no município + margem de 2 km.
+# Coordenadas longitude/latitude em WGS84. OSM e Overture foram recortados com margem adicional.
+study_area_bbox:
+  west: -49.383502
+  south: -25.613316
+  east: -49.178134
+  north: -25.340250
+
+hex_grid:
+  radius_m: 300
+  crs: EPSG:32722
+
+map:
+  latitude: -25.459711
+  longitude: -49.276052
+  zoom: 11
