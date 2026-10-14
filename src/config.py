@@ -60,7 +60,27 @@ def load_catalog():
     for poi_type, item in catalog.items():
         if not item.get("overture_categories"):
             raise ValueError(f"Categoria sem termos Overture: {poi_type}")
+        if item.get("priority", "standard") not in ("standard", "secondary"):
+            raise ValueError(f"Prioridade inválida para {poi_type}")
     return catalog
+
+
+def load_overture_options():
+    """Lê o filtro de confiança dos POIs brutos do Overture."""
+    options = read_yaml(ROOT / "config" / "overture.yaml")
+    if not isinstance(options, dict):
+        raise ValueError("config/overture.yaml deve conter um mapa")
+
+    threshold = options.get("min_confidence")
+    if (
+        isinstance(threshold, bool)
+        or not isinstance(threshold, (int, float))
+        or not 0 <= threshold <= 1
+    ):
+        raise ValueError("min_confidence deve ser um número entre 0 e 1")
+    if not isinstance(options.get("include_missing_confidence"), bool):
+        raise ValueError("include_missing_confidence deve ser true ou false")
+    return options
 
 
 def load_destinations(city_id):

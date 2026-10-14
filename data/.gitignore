@@ -1,5 +1,0 @@
-# Dados baixados e gerados localmente.
-*.osm.pbf
-*.zip
-*.parquet
-*.geojson

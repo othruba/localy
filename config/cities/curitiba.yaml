@@ -22,7 +22,7 @@ study_area_bbox:
   north: -25.340250
 
 hex_grid:
-  radius_m: 300
+  radius_m: 250
   crs: EPSG:32722
 
 map:

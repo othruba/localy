@@ -1,0 +1,20 @@
+# Uma necessidade ampla pode representar vários tipos de lugar. Os pesos são
+# sugestões relativas; escolhas explícitas da IA mantêm o peso que ela atribuiu.
+arts_and_culture:
+  terms: [arte, artes, artistico, artistica, artisticos, artisticas, cultura, cultural, culturais]
+  pois:
+    museum: 4
+    art_gallery: 4
+    cultural_center: 4
+    theater: 3
+    library: 2
+    bookstore: 1
+    movie_theater: 1
+  exclude_terms:
+    museum: [museu, museus]
+    art_gallery: [galeria, galerias]
+    cultural_center: [centro cultural, centros culturais]
+    theater: [teatro, teatros]
+    library: [biblioteca, bibliotecas]
+    bookstore: [livraria, livrarias]
+    movie_theater: [cinema, cinemas]

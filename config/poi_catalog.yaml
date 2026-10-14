@@ -1,15 +1,19 @@
-# Os valores abaixo são termos da hierarquia de taxonomy no Overture Places.
+# Os valores abaixo são termos da taxonomia do Overture Places; são conferidos
+# em primary, hierarchy, alternates e basic_category de cada registro.
 # Uma categoria local pode reunir mais de um termo da taxonomia.
 pharmacy:
   label: Farmácia
+  description: Farmácias e drogarias para medicamentos e itens de saúde.
   overture_categories: [pharmacy, drugstore]
 
 hospital:
   label: Hospital
+  description: Hospitais para atendimento médico.
   overture_categories: [hospital]
 
 clinic:
   label: Clínica
+  description: Clínicas médicas, odontológicas e de outras especialidades.
   overture_categories:
     - primary_care_or_general_clinic
     - pediatric_clinic
@@ -20,31 +24,179 @@ clinic:
 
 supermarket:
   label: Supermercado
+  description: Supermercados e lojas grandes de alimentos e produtos do dia a dia.
   # A taxonomia desta versão usa grocery_store para supermercados e mercados.
   overture_categories: [grocery_store, superstore]
 
 grocery_store:
   label: Mercearia
+  description: Mercados de bairro, mercearias e lojas de conveniência.
   # Há sobreposição com supermarket porque Overture agrupa mercados grandes
   # e pequenos em grocery_store. Mantemos conveniências também neste tipo.
   overture_categories: [grocery_store, convenience_store, organic_grocery_store]
 
 restaurant:
   label: Restaurante
+  description: Restaurantes para refeições.
   overture_categories: [restaurant]
 
 cafe:
   label: Café
+  description: Cafeterias e locais para café e lanches.
   overture_categories: [cafe]
 
 gym:
   label: Academia
+  description: Academias para exercícios físicos.
   overture_categories: [gym]
 
 park:
   label: Parque
+  description: Parques e áreas públicas de lazer ao ar livre.
   overture_categories: [park]
 
 school:
   label: Escola
+  description: Escolas de ensino básico.
   overture_categories: [school]
+
+# Critérios secundários também são preparados. A IA só deve selecioná-los
+# quando a consulta mencionar ou implicar claramente o serviço; o peso final
+# continua sendo definido pela importância expressa pela pessoa.
+dental_clinic:
+  label: Clínica odontológica
+  description: Consultórios e clínicas de atendimento odontológico.
+  priority: secondary
+  overture_categories: [dental_clinic]
+
+veterinarian:
+  label: Veterinário
+  description: Clínicas e profissionais de atendimento veterinário.
+  priority: secondary
+  overture_categories: [veterinarian]
+
+bank:
+  label: Banco
+  description: Agências bancárias e cooperativas de crédito.
+  priority: secondary
+  overture_categories: [bank_or_credit_union]
+
+bakery:
+  label: Padaria
+  description: Padarias e estabelecimentos de panificação.
+  priority: secondary
+  overture_categories: [bakery]
+
+bar:
+  label: Bar
+  description: Bares e locais para bebidas.
+  priority: secondary
+  overture_categories: [bar]
+
+gas_station:
+  label: Posto de combustível
+  description: Postos de abastecimento de veículos.
+  priority: secondary
+  overture_categories: [gas_station]
+
+pet_store:
+  label: Pet shop
+  description: Lojas de produtos para animais de estimação.
+  priority: secondary
+  overture_categories: [pet_store]
+
+pet_groomer:
+  label: Banho e tosa
+  description: Serviços de higiene e estética para animais.
+  priority: secondary
+  overture_categories: [pet_groomer]
+
+beauty_salon:
+  label: Salão de beleza
+  description: Salões de beleza e serviços de cabelo e estética.
+  priority: secondary
+  overture_categories: [beauty_salon]
+
+laundry_service:
+  label: Lavanderia
+  description: Lavanderias e serviços de limpeza de roupas.
+  priority: secondary
+  overture_categories: [laundry_service]
+
+bookstore:
+  label: Livraria
+  description: Livrarias e lojas de livros.
+  priority: secondary
+  overture_categories: [bookstore]
+
+library:
+  label: Biblioteca
+  description: Bibliotecas públicas e privadas.
+  priority: secondary
+  overture_categories: [library]
+
+movie_theater:
+  label: Cinema
+  description: Salas e complexos de cinema.
+  priority: secondary
+  overture_categories: [movie_theater]
+
+museum:
+  label: Museu
+  description: Museus e espaços de exposição cultural.
+  priority: secondary
+  overture_categories: [museum]
+
+art_gallery:
+  label: Galeria de arte
+  description: Galerias e espaços de exposição de arte.
+  priority: secondary
+  overture_categories: [art_gallery]
+
+cultural_center:
+  label: Centro cultural
+  description: Centros culturais com programação artística e eventos.
+  priority: secondary
+  overture_categories: [cultural_center]
+
+theater:
+  label: Teatro
+  description: Teatros e espaços de artes cênicas.
+  priority: secondary
+  overture_categories: [theatre_venue, performing_arts_venue]
+
+shopping_mall:
+  label: Shopping center
+  description: Centros comerciais e shoppings.
+  priority: secondary
+  overture_categories: [shopping_mall]
+
+clothing_store:
+  label: Loja de roupas
+  description: Lojas de vestuário.
+  priority: secondary
+  overture_categories: [clothing_store]
+
+hardware_store:
+  label: Loja de ferragens
+  description: Ferragens e materiais para pequenos reparos.
+  priority: secondary
+  overture_categories: [hardware_store]
+
+electronics_store:
+  label: Loja de eletrônicos
+  description: Lojas de eletrônicos e acessórios.
+  priority: secondary
+  overture_categories: [electronics_store]
+
+ice_cream_shop:
+  label: Sorveteria
+  description: Sorveterias e lojas de sobremesas geladas.
+  priority: secondary
+  overture_categories: [ice_cream_shop]
+
+post_office:
+  label: Correios
+  description: Agências postais e serviços de envio de correspondência.
+  priority: secondary
+  overture_categories: [post_office]

@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--city", required=True, help="ID da cidade")
     parser.add_argument("--cell-id", help="Calcula somente uma célula para inspeção")
     parser.add_argument("--output", type=Path, help="Pasta alternativa para inspeções")
+    parser.add_argument("--input", type=Path, help="Pasta com grid.parquet e pois.parquet preparados")
     parser.add_argument("--part", choices=["all", "destinations", "pois"], default="all")
     parser.add_argument("--poi-batch-size", type=int, default=20)
     parser.add_argument("--max-memory", default="4G", help="Heap máximo do r5py")
@@ -28,7 +29,7 @@ def main():
     # O r5py lê seu limite de memória da linha de comando quando é importado.
     sys.argv = [sys.argv[0], "--max-memory", args.max_memory]
     city = load_city(args.city)
-    source = ROOT / "data" / "processed" / args.city
+    source = args.input or ROOT / "data" / "processed" / args.city
     grid = gpd.read_parquet(source / "grid.parquet")
     pois = gpd.read_parquet(source / "pois.parquet")
     if args.cell_id:

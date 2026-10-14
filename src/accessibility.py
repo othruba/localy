@@ -50,7 +50,7 @@ def poi_access(network, grid, pois, poi_types, date, crs, batch_size=20):
     projected_origins = origins.to_crs(crs)
     projected_targets = targets.to_crs(projected_origins.crs)
     index = projected_targets.sindex
-    types = pois[["poi_id", "poi_type"]].rename(columns={"poi_id": "to_id"})
+    types = pois[["poi_id", "poi_type", "name"]].rename(columns={"poi_id": "to_id"})
     batches = []
 
     for start in range(0, len(origins), batch_size):
@@ -68,20 +68,31 @@ def poi_access(network, grid, pois, poi_types, date, crs, batch_size=20):
         if nearby:
             selected = targets.iloc[sorted(nearby)]
             matrix = travel_times(network, group, selected, ["WALK"], date, 30)
-            matrix["travel_time"] = matrix.travel_time.where(matrix.travel_time <= 30)
+            matrix["travel_time"] = pd.to_numeric(matrix.travel_time, errors="coerce")
+            matrix = matrix.loc[matrix.travel_time <= 30]
             matrix = matrix.merge(types, on="to_id", how="left")
-            nearest = (
-                matrix.groupby(["from_id", "poi_type"], as_index=False)["travel_time"]
-                .min()
-                .rename(columns={"from_id": "cell_id", "travel_time": "nearest_walk_minutes"})
+            # Guarda o lugar do menor tempo de rota, não o mais próximo em
+            # linha reta. Desempates pelo ID mantêm resultados reproduzíveis.
+            nearest = matrix.sort_values(["travel_time", "to_id"]).drop_duplicates(
+                ["from_id", "poi_type"]
             )
+            nearest = nearest.rename(columns={
+                "from_id": "cell_id",
+                "travel_time": "nearest_walk_minutes",
+                "to_id": "nearest_poi_id",
+                "name": "nearest_poi_name",
+            })[
+                ["cell_id", "poi_type", "nearest_walk_minutes", "nearest_poi_id", "nearest_poi_name"]
+            ]
             all_rows = all_rows.merge(nearest, on=["cell_id", "poi_type"], how="left")
         else:
             all_rows["nearest_walk_minutes"] = float("nan")
+            all_rows["nearest_poi_id"] = None
+            all_rows["nearest_poi_name"] = None
         batches.append(all_rows)
         if end == len(origins) or (start // batch_size + 1) % 10 == 0:
             print(f"POIs: {end}/{len(origins)} células", flush=True)
 
     return pd.concat(batches, ignore_index=True)[
-        ["cell_id", "poi_type", "nearest_walk_minutes"]
+        ["cell_id", "poi_type", "nearest_walk_minutes", "nearest_poi_id", "nearest_poi_name"]
     ]

@@ -1,0 +1,6 @@
+# Confidence mede a chance de o local existir; não é a importância pessoal dele.
+# 0.0 mantém também registros de baixa confiança (mas exclui locais fechados).
+min_confidence: 0.0
+
+# Se um lançamento futuro não trouxer confidence, ainda usar o POI.
+include_missing_confidence: true
